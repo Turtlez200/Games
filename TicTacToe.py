@@ -20,6 +20,7 @@ small = pygame.font.SysFont(None, 35)
 pygame.display.update()
 
 while running:
+    pygame.draw.rect(window, )
     for event in pygame.event.get():
         if event.type == QUIT:
             running = False

@@ -19,7 +19,7 @@ class GridWindow(GridLayout, Screen):
              "racecar", "bottom", "misery", "lampost", "postcard", "guitar", "violin",
              "highway", "chemistry", "sandwich", "square", "bail", "mold", "justice", "janitor", "pizza"]
 
-    word = "fuck ur mom"
+    word = ""
     under = word
     emp = ""
     for x in range(len(under)):

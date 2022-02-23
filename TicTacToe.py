@@ -16,11 +16,19 @@ background = back.convert()
 background.fill((0, 0, 0))
 basic_font = pygame.font.SysFont(None, 48)
 small = pygame.font.SysFont(None, 35)
-
+grid = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
 pygame.display.update()
 
 while running:
-    pygame.draw.rect(window, )
+    pygame.draw.line(window, (255, 255, 255), (200, 0), (200, 600), 10)
+    pygame.draw.line(window, (255, 255, 255), (400, 0), (400, 600), 10)
+    pygame.draw.line(window, (255, 255, 255), (0, 200), (600, 200), 10)
+    pygame.draw.line(window, (255, 255, 255), (0, 400), (600, 400), 10)
+    pos = pygame.mouse.get_pressed()
+    if (pos[0] == True):
+        print("clicked")
+
+    pygame.display.update()
     for event in pygame.event.get():
         if event.type == QUIT:
             running = False

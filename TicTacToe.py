@@ -1,8 +1,6 @@
-from tabnanny import check
 import pygame
 import sys
 from pygame.locals import *
-import random
 
 pygame.init()
 
@@ -79,9 +77,9 @@ while running:
     l = checkwin(grid)
     if l != 0:
         if l == 2:
-            text = basic_font.render("X Winner", True, (255, 0, 0))
+            text = basic_font.render("X Winner", False, (255, 0, 0))
         else:
-            text = basic_font.render("O Winner", True, (255, 0, 0))
+            text = basic_font.render("O Winner", False, (255, 0, 0))
         window.blit(text, (210, 50))
     pygame.display.update()
     for event in pygame.event.get():

@@ -1,4 +1,5 @@
-import pygame, sys
+import pygame
+import sys
 from pygame.locals import *
 import random
 
@@ -15,7 +16,6 @@ background = back.convert()
 background.fill((0, 0, 0))
 basic_font = pygame.font.SysFont(None, 48)
 small = pygame.font.SysFont(None, 35)
-background_image = pygame.image.load("assets/back.jpeg").convert()
 
 letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v',
            'w', 'x', 'y', 'z']
@@ -49,16 +49,18 @@ bomb = Bomb()
 bomb1 = Bomb()
 index_letter1 = letters.index('a')
 index_letter = letters.index('a')
+
 while running:
-    window.blit(background_image, (0, 0))
     if len(scores) > 0:
-        high = small.render(f"High: {max(scores)}", True, (255, 255, 255), (0, 0, 0))
+        high = small.render(f"High: {max(scores)}",
+                            True, (255, 255, 255), (0, 0, 0))
         window.blit(high, (0, 40))
     window.blit(letter.image, (letter.x, letter.y))
     pygame.draw.circle(window, (255, 0, 0), (bomb.x, bomb.y), 15)
     pygame.draw.circle(window, (255, 0, 0), (bomb1.x, bomb1.y), 15)
 
-    score_blit = basic_font.render(str(score), True, (255, 255, 255), (0, 0, 0))
+    score_blit = basic_font.render(
+        str(score), True, (255, 255, 255), (0, 0, 0))
     window.blit(score_blit, (0, 0))
     timePassed = clock.tick(30)
     timeSeconds = timePassed / 1000.0
@@ -72,7 +74,8 @@ while running:
         if letter1.y == 380:
             letter1_choice = str(random.choice(letters))
             index_letter1 = letters.index(letter1_choice)
-            letter1.image = basic_font.render(letter1_choice, True, (255, 255, 255), (0, 0, 0))
+            letter1.image = basic_font.render(
+                letter1_choice, True, (255, 255, 255), (0, 0, 0))
             letter1.y = 0
             letter1.x = random.randint(1, 581)
             lives += 1
@@ -80,7 +83,8 @@ while running:
             letter1_choice = str(random.choice(letters))
             index_letter1 = letters.index(letter1_choice)
             score += 1
-            letter1.image = basic_font.render(letter1_choice, True, (255, 255, 255), (0, 0, 0))
+            letter1.image = basic_font.render(
+                letter1_choice, True, (255, 255, 255), (0, 0, 0))
             bomb1.x = 3000
             bomb1.y = 3050
             bomb1.move = 0
@@ -97,7 +101,8 @@ while running:
     if letter.y == 380:
         letter_choice = str(random.choice(letters))
         index_letter = letters.index(letter_choice)
-        letter.image = basic_font.render(letter_choice, True, (255, 255, 255), (0, 0, 0))
+        letter.image = basic_font.render(
+            letter_choice, True, (255, 255, 255), (0, 0, 0))
         letter.y = 0
         letter.x = random.randint(1, 581)
         lives += 1
@@ -105,7 +110,8 @@ while running:
         letter_choice = str(random.choice(letters))
         index_letter = letters.index(letter_choice)
         score += 1
-        letter.image = basic_font.render(letter_choice, True, (255, 255, 255), (0, 0, 0))
+        letter.image = basic_font.render(
+            letter_choice, True, (255, 255, 255), (0, 0, 0))
         bomb.x = 3000
         bomb.y = 3050
         bomb.move = 0
@@ -122,7 +128,8 @@ while running:
     if paused:
         bomb.move = 0
         bomb1.move = 0
-        window.blit(basic_font.render('press space to play', True, (255, 255, 255), (0, 0, 0)), (0, 0))
+        window.blit(basic_font.render('press space to play',
+                    True, (255, 255, 255), (0, 0, 0)), (0, 0))
         bomb.y = 3000
         bomb.x = 4000
         bomb1.y = 3001
@@ -155,9 +162,3 @@ while running:
                     bomb1.move = -bomb1.speed
 
 pygame.quit()
-
-
-
-
-
-
